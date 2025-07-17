@@ -4,7 +4,6 @@ Revisiting Algorithm Design Techniques because the course at my college was not 
 
 WHAT TO LEARN??
 
-- [ ] Recursion
 - [ ] Divide And Conquer
 - [ ] Greedy Algorithms
 - [ ] Backtracking
