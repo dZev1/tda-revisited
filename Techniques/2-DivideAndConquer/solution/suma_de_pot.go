@@ -40,12 +40,12 @@ func potencia(A [4][4]int, n int) [4][4]int {
 // n = 2^k , k >= 1
 // A = 4x4 matrix
 
-func SumaDePotencia(A [4][4]int, n int) [4][4]int {
+func SumaDePotencias(A [4][4]int, n int) [4][4]int {
 	if n == 1 {
 		return A
 	}
 	m := n / 2
 	Asq := potencia(A, m)
-	sumM := SumaDePotencia(A, m)
+	sumM := SumaDePotencias(A, m)
 	return sum(sumM, multiply(Asq, sumM))
 }
