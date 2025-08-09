@@ -54,27 +54,27 @@ func TestMirrorIndex(t *testing.T) {
 	}{
 		{
 			name: "has mirror index to the left",
-			args: args{arr: []int{1,3,5,7,9,11}},
+			args: args{arr: []int{1, 3, 5, 7, 9, 11}},
 			want: true,
 		},
 		{
 			name: "has mirror index to the right",
-			args: args{arr: []int{-2,-1,0,1,5}},
+			args: args{arr: []int{-2, -1, 0, 1, 5}},
 			want: true,
 		},
 		{
 			name: "has mirror index in the center",
-			args: args{arr: []int{-1,0,1,4,9,10,13}},
+			args: args{arr: []int{-1, 0, 1, 4, 9, 10, 13}},
 			want: true,
 		},
 		{
 			name: "does not have mirror index",
-			args: args{arr: []int{-1,0,1,2,3,4,5,6}},
+			args: args{arr: []int{-1, 0, 1, 2, 3, 4, 5, 6}},
 			want: false,
 		},
 		{
 			name: "empty array",
-			args : args{arr: []int {}},
+			args: args{arr: []int{}},
 			want: false,
 		},
 	}
@@ -86,7 +86,6 @@ func TestMirrorIndex(t *testing.T) {
 		})
 	}
 }
-
 
 func TestPowLog(t *testing.T) {
 	type args struct {
@@ -136,31 +135,31 @@ func TestSumaDePotencias(t *testing.T) {
 		{
 			name: "identity matrix sum",
 			args: args{A: [4][4]int{
-						  	{1,0,0,0},
-						  	{0,1,0,0},
-						  	{0,0,1,0},
-						  	{0,0,0,1},
-						  }, n: 4},
-			want: [4][4]int {
-				{4,0,0,0},
-				{0,4,0,0},
-				{0,0,4,0},
-				{0,0,0,4},
+				{1, 0, 0, 0},
+				{0, 1, 0, 0},
+				{0, 0, 1, 0},
+				{0, 0, 0, 1},
+			}, n: 4},
+			want: [4][4]int{
+				{4, 0, 0, 0},
+				{0, 4, 0, 0},
+				{0, 0, 4, 0},
+				{0, 0, 0, 4},
 			},
 		},
 		{
 			name: "some Matrix to the 2^kth power",
 			args: args{A: [4][4]int{
-						  	{1 ,2 ,3 ,4 },
-						  	{8 ,7 ,6 ,5 },
-						  	{-1,-2,-3,-4},
-						  	{-8,-7,-6,-5},
-						  }, n: 8},
-			want: [4][4]int {
-				{-17,-16,-15,-14},
-				{26,25,24,23},
-				{17,16,15,14},
-				{-26,-25,-24,-23},
+				{1, 2, 3, 4},
+				{8, 7, 6, 5},
+				{-1, -2, -3, -4},
+				{-8, -7, -6, -5},
+			}, n: 8},
+			want: [4][4]int{
+				{-17, -16, -15, -14},
+				{26, 25, 24, 23},
+				{17, 16, 15, 14},
+				{-26, -25, -24, -23},
 			},
 		},
 	}
@@ -184,17 +183,17 @@ func TestMergeSort(t *testing.T) {
 	}{
 		{
 			name: "all equal slice",
-			args: args{arr: []int{1,1,1,1,1,1,1,1,1,1}},
-			want: []int{1,1,1,1,1,1,1,1,1,1},
+			args: args{arr: []int{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}},
+			want: []int{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 		},
 		{
 			name: "merge and Sort",
-			args: args{arr: []int{1,2934,-343,19,3,359,-123,-32422342,43}},
-			want: []int{-32422342,-343,-123,1,3,19,43,359,2934},
+			args: args{arr: []int{1, 2934, -343, 19, 3, 359, -123, -32422342, 43}},
+			want: []int{-32422342, -343, -123, 1, 3, 19, 43, 359, 2934},
 		},
 		{
 			name: "one element array",
-			args: args{arr: []int {1}},
+			args: args{arr: []int{1}},
 			want: []int{1},
 		},
 	}
@@ -208,47 +207,47 @@ func TestMergeSort(t *testing.T) {
 }
 
 func TestConstructMaximumBinaryTree(t *testing.T) {
-    type args struct {
-        nums []int
-    }
-    tests := []struct {
-        name string
-        args args
-        want []int
-    }{
-        {
-            name: "simple case",
-            args: args{nums: []int{3, 2, 1, 6, 0, 5}},
-            want: []int{6, 3, 5, 2, 0, 1},
-        },
-        {
-            name: "single element",
-            args: args{nums: []int{42}},
-            want: []int{42},
-        },
-        {
-            name: "empty array",
-            args: args{nums: []int{}},
-            want: []int{},
-        },
-        {
-            name: "all increasing",
-            args: args{nums: []int{1, 2, 3, 4}},
-            want: []int{4, 3, 2, 1},
-        },
-        {
-            name: "all decreasing",
-            args: args{nums: []int{4, 3, 2, 1}},
-            want: []int{4, 3, 2, 1},
-        },
-    }
-    for _, tt := range tests {
-        t.Run(tt.name, func(t *testing.T) {
-            root := ConstructMaximumBinaryTree(tt.args.nums)
-            got := GetLevelOrder(root)
-            if !reflect.DeepEqual(got, tt.want) {
-                t.Errorf("ConstructMaximumBinaryTree() level order = %v, want %v", got, tt.want)
-            }
-        })
-    }
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "simple case",
+			args: args{nums: []int{3, 2, 1, 6, 0, 5}},
+			want: []int{6, 3, 5, 2, 0, 1},
+		},
+		{
+			name: "single element",
+			args: args{nums: []int{42}},
+			want: []int{42},
+		},
+		{
+			name: "empty array",
+			args: args{nums: []int{}},
+			want: []int{},
+		},
+		{
+			name: "all increasing",
+			args: args{nums: []int{1, 2, 3, 4}},
+			want: []int{4, 3, 2, 1},
+		},
+		{
+			name: "all decreasing",
+			args: args{nums: []int{4, 3, 2, 1}},
+			want: []int{4, 3, 2, 1},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			root := ConstructMaximumBinaryTree(tt.args.nums)
+			got := GetLevelOrder(root)
+			if !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("ConstructMaximumBinaryTree() level order = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }

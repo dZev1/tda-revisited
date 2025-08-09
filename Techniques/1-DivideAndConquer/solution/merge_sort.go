@@ -1,6 +1,5 @@
 package solution
 
-
 func MergeSort(arr []int) []int {
 	if len(arr) <= 1 {
 		return arr

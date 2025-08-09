@@ -16,7 +16,7 @@ func MoreLeftArr(arr []int) bool {
 	for i := mid; i < len(arr); i++ {
 		sumRight += arr[i]
 	}
-	
+
 	isMoreLeftL := MoreLeftArr(arr[:mid])
 	isMoreLeftR := MoreLeftArr(arr[mid:])
 	return (sumLeft > sumRight) && isMoreLeftL && isMoreLeftR

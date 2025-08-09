@@ -1,20 +1,20 @@
 package solution
 
 func multiply(X, Y [4][4]int) [4][4]int {
-		var result [4][4]int
-		for i := 0; i < 4; i++ {
-			for j := 0; j < 4; j++ {
-				for k := 0; k < 4; k++ {
-					result[i][j] += X[i][k] * Y[k][j]
-				}
+	var result [4][4]int
+	for i := range 4 {
+		for j := range 4 {
+			for k := range 4 {
+				result[i][j] += X[i][k] * Y[k][j]
 			}
 		}
-		return result
+	}
+	return result
 }
-func sum(X,Y [4][4]int) [4][4]int {
+func sum(X, Y [4][4]int) [4][4]int {
 	var result [4][4]int
-	for i := 0; i < 4; i++ {
-		for j := 0; j < 4; j++ {
+	for i := range 4 {
+		for j := range 4 {
 			result[i][j] = X[i][j] + Y[i][j]
 		}
 	}
@@ -22,7 +22,7 @@ func sum(X,Y [4][4]int) [4][4]int {
 }
 func potencia(A [4][4]int, n int) [4][4]int {
 	var res [4][4]int
-	for i := 0; i < 4; i++ {
+	for i := range 4 {
 		res[i][i] = 1
 	}
 
