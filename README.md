@@ -5,7 +5,7 @@ Revisiting Algorithm Design Techniques because the course at my college was not 
 WHAT TO LEARN??
 
 - [x] Divide And Conquer
-- [ ] Greedy Algorithms
+- [X] Greedy Algorithms
 - [ ] Backtracking
 - [ ] Graphs: representation, basic concepts
 - [ ] BFS - DFS
