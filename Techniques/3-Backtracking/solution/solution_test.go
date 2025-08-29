@@ -102,3 +102,34 @@ func TestBinaryTreePaths(t *testing.T) {
 		})
 	}
 }
+
+func TestSubsetSum(t *testing.T) {
+	type args struct {	
+		nums   []int
+		target int
+	}
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			name: "set with subset sum",
+			args: args{nums: []int{3, 34, 4, 12, 5, 2}, target: 9},
+			want: true,
+		},
+		{	
+			name: "set without subset sum",
+			args: args{nums: []int{3, 34, 4, 12, 5, 2}, target: 30},
+			want: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := SubsetSum(tt.args.nums, tt.args.target); got != tt.want {
+				t.Errorf("SubsetSum() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
